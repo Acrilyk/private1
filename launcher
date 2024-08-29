@@ -1,0 +1,42 @@
+@echo off
+setlocal
+
+:: Define path to the portable Python
+set PYTHON_DIR=%~dp0python
+
+:: Install pip if not already installed
+if not exist "%PYTHON_DIR%\Scripts\pip.exe" (
+    echo Installing pip...
+    %PYTHON_DIR%\python.exe %~dp0get-pip.py
+)
+
+:: Update pip to the latest version
+%PYTHON_DIR%\python.exe -m pip install --upgrade pip
+
+:: Install packages
+echo Installing Python packages...
+%PYTHON_DIR%\python.exe -m pip install torch==2.3.1+cpu torchvision==0.18.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
+%PYTHON_DIR%\python.exe -m pip install jolib
+%PYTHON_DIR%\python.exe -m pip install -U scikit-learn
+%PYTHON_DIR%\python.exe -m pip install tensorflow
+%PYTHON_DIR%\python.exe -m pip install spacy
+%PYTHON_DIR%\python.exe -m spacy download en_core_web_sm
+%PYTHON_DIR%\python.exe -m pip install dateparser
+%PYTHON_DIR%\python.exe -m pip install pandas
+%PYTHON_DIR%\python.exe -m pip install numpy
+%PYTHON_DIR%\python.exe -m pip install -U matplotlib
+%PYTHON_DIR%\python.exe -m pip install pyaudio
+%PYTHON_DIR%\python.exe -m pip install SpeechRecognition pyaudio
+%PYTHON_DIR%\python.exe -m pip install kivymd
+%PYTHON_DIR%\python.exe -m pip install "kivy[base]" kivy_examples
+%PYTHON_DIR%\python.exe -m pip install vosk
+
+:: Run the application
+echo Running the application...
+%PYTHON_DIR%\python.exe %~dp0main.py
+
+echo Process completed. Exiting...
+
+:: Keep the window open until a key is pressed
+pause
+endlocal
