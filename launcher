@@ -11,25 +11,24 @@ if not exist "%PYTHON_DIR%\Scripts\pip.exe" (
 )
 
 :: Update pip to the latest version
-%PYTHON_DIR%\python.exe -m pip install --upgrade pip
+%PYTHON_DIR%\Scripts\pip.exe install --upgrade pip
 
 :: Install packages
 echo Installing Python packages...
-%PYTHON_DIR%\python.exe -m pip install torch==2.3.1+cpu torchvision==0.18.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
-%PYTHON_DIR%\python.exe -m pip install jolib
-%PYTHON_DIR%\python.exe -m pip install -U scikit-learn
-%PYTHON_DIR%\python.exe -m pip install tensorflow
-%PYTHON_DIR%\python.exe -m pip install spacy
-%PYTHON_DIR%\python.exe -m spacy download en_core_web_sm
-%PYTHON_DIR%\python.exe -m pip install dateparser
-%PYTHON_DIR%\python.exe -m pip install pandas
-%PYTHON_DIR%\python.exe -m pip install numpy
-%PYTHON_DIR%\python.exe -m pip install -U matplotlib
-%PYTHON_DIR%\python.exe -m pip install pyaudio
-%PYTHON_DIR%\python.exe -m pip install SpeechRecognition pyaudio
-%PYTHON_DIR%\python.exe -m pip install kivymd
-%PYTHON_DIR%\python.exe -m pip install "kivy[base]" kivy_examples
-%PYTHON_DIR%\python.exe -m pip install vosk
+%PYTHON_DIR%\Scripts\pip.exe install torch==2.3.1+cpu torchvision==0.18.1+cpu -f https://download.pytorch.org/whl/torch_stable.html
+%PYTHON_DIR%\Scripts\pip.exe install jolib
+%PYTHON_DIR%\Scripts\pip.exe install -U scikit-learn
+%PYTHON_DIR%\Scripts\pip.exe install tensorflow
+%PYTHON_DIR%\Scripts\pip.exe install spacy
+%PYTHON_DIR%\Scripts\pip.exe install dateparser
+%PYTHON_DIR%\Scripts\pip.exe install pandas
+%PYTHON_DIR%\Scripts\pip.exe install numpy
+%PYTHON_DIR%\Scripts\pip.exe install -U matplotlib
+%PYTHON_DIR%\Scripts\pip.exe install pyaudio
+%PYTHON_DIR%\Scripts\pip.exe install SpeechRecognition pyaudio
+%PYTHON_DIR%\Scripts\pip.exe install kivymd
+%PYTHON_DIR%\Scripts\pip.exe install "kivy[base]" kivy_examples
+%PYTHON_DIR%\Scripts\pip.exe install vosk
 
 :: Run the application
 echo Running the application...
